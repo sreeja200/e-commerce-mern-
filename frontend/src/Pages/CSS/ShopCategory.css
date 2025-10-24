@@ -1,0 +1,118 @@
+/* banner stays the same */
+.shopcategory-banner {
+  display: block;
+  margin: 30px auto;
+  width: 82%;
+}
+
+/* index + sort row aligned to banner edges */
+.shopcategory-indexSort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 82%;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.shopcategory-indexSort p span {
+  font-weight: 600;
+}
+
+/* sort pill */
+.shopcategory-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 1px solid #888;
+  cursor: pointer;
+  line-height: 1;           /* avoid tall pill look */
+  height: 40px;             /* keeps a neat fixed height */
+}
+
+/* products grid exactly matches banner width and is centered */
+.shopcategory-products {
+  width: 82%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 30px;
+  row-gap: 60px;            /* slightly tighter by default */
+}
+
+/* ensure each card and image fits its column (robust even if Item doesn't pass className) */
+.shopcategory-products > * {
+  width: 100%;
+}
+
+.shopcategory-products img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* load more centered under the grid (works whether inside or outside grid) */
+.shopcategory-loadmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* center if this node is placed inside the grid */
+  grid-column: 1 / -1;
+  justify-self: center;
+
+  /* center if it is outside the grid (as in our JSX) */
+  margin: 60px auto 80px;   /* reduced gaps above and below across devices */
+
+  width: 233px;
+  height: 69px;
+  border-radius: 75px;
+  background: #dedede;
+  color: #787878;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* responsive columns to keep alignment clean on smaller screens */
+@media (max-width: 1200px) {
+  .shopcategory-products { grid-template-columns: repeat(3, 1fr); row-gap: 50px; }
+}
+
+@media (max-width: 900px)  {
+  .shopcategory-products { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .shopcategory-loadmore { margin: 50px auto 70px; }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px)  {
+  .shopcategory-banner { margin: 20px auto; width: 90%; }
+
+  .shopcategory-indexSort {
+    width: 90%;
+    gap: 10px;
+  }
+
+  /* smaller, tidier pill on phones */
+  .shopcategory-sort {
+    padding: 6px 12px;
+    border-radius: 24px;
+    font-size: 12px;
+    height: 34px;
+  }
+
+  .shopcategory-products {
+    width: 90%;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  .shopcategory-loadmore {
+    margin: 40px auto 60px;  /* tighter spacing on phones */
+    width: 200px;
+    height: 56px;
+    font-size: 16px;
+  }
+}

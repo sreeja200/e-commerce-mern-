@@ -1,0 +1,171 @@
+
+.new-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* <CHANGE> prevent overlap: remove fixed height */
+    height: auto;         /* was: 90vh */
+    min-height: 90vh;     /* keep the tall feel without forcing overflow */
+    padding: 0 5%;
+    /* <CHANGE> give breathing room above footer */
+    padding-bottom: 40px;
+}
+
+.new-collections h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.new-collections hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+}
+
+.collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 270px));
+    margin-top: 50px;
+    gap: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collections .item img {
+    width: 270px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.collections .item {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.collections .item p {
+    width: 100%;
+    word-wrap: break-word;
+    margin: 6px 0px;
+}
+
+/* Tablet Responsive Styles (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .new-collections {
+        padding: 0 4%;
+        gap: 8px;
+        /* keep auto height; min-height from base still applies */
+        padding-bottom: 32px; /* subtle taper on tablet */
+    }
+
+    .new-collections h1 {
+        font-size: 36px;
+    }
+
+    .new-collections hr {
+        width: 150px;
+        height: 5px;
+    }
+
+    .collections {
+        grid-template-columns: repeat(2, minmax(240px, 270px));
+        gap: 32px;
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .collections .item {
+        width: 240px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .collections .item img {
+        width: 240px;
+        height: 310px;
+    }
+}
+
+/* Mobile Responsive Styles (below 768px) */
+@media screen and (max-width: 767px) {
+    .new-collections {
+        padding: 0 5%;
+        gap: 6px;
+        /* <CHANGE> already mobile-friendly; keep it */
+        height: auto;
+        min-height: 90vh;
+        padding-bottom: 24px; /* comfortable spacing above footer on mobile */
+    }
+
+    .new-collections h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .new-collections hr {
+        width: 120px;
+        height: 4px;
+    }
+
+    .collections {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 30px;
+        justify-items: center;
+        max-width: 350px;
+    }
+
+    .collections .item {
+        width: 100%;
+        max-width: 300px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .collections .item img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 270 / 350;
+    }
+
+    .collections .item p {
+        font-size: 14px;
+    }
+}
+
+/* Extra small devices (below 480px) */
+@media screen and (max-width: 480px) {
+    .new-collections {
+        padding: 0 4%;
+    }
+
+    .new-collections h1 {
+        font-size: 24px;
+    }
+
+    .new-collections hr {
+        width: 100px;
+    }
+
+    .collections {
+        gap: 20px;
+        margin-top: 24px;
+    }
+
+    .collections .item {
+        max-width: 280px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .collections .item img {
+        max-width: 280px;
+    }
+}

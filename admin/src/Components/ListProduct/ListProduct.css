@@ -1,0 +1,154 @@
+.list-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px 50px;
+  background: white;
+  border-radius: 6px;
+}
+
+.list-product h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Fixed grid layout with proper column sizing */
+.listproduct-format-main {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 100px 100px 80px;
+  gap: 20px;
+  width: 100%;
+  padding: 15px 0;
+  align-items: center;
+}
+
+.listproduct-header {
+  font-weight: 600;
+  color: #454545;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  padding: 15px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.listproduct-format {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+  
+}
+
+.listproduct-format:hover {
+  background-color: #f5f5f5;
+}
+
+/* Proper cell alignment for each column */
+.product-image-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-title-cell {
+  display: flex;
+  align-items: center;
+}
+
+.product-title-cell p {
+  margin: 0;
+}
+
+.product-price-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-price-cell p {
+  margin: 0;
+}
+
+.product-category-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-category-cell p {
+  margin: 0;
+}
+
+.product-remove-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listproduct-product-icon {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.listproduct-remove-icon {
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.listproduct-remove-icon:hover {
+  color: #ff0000;
+}
+
+.listproduct-allproducts {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .listproduct-format-main {
+    grid-template-columns: 60px 1fr 80px 80px 80px 60px;
+    gap: 15px;
+    padding: 12px 0;
+  }
+
+  .listproduct-product-icon {
+    height: 60px;
+    width: 60px;
+  }
+
+  .listproduct-format-main p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-product {
+    padding: 20px 15px;
+  }
+
+  .listproduct-format-main {
+    grid-template-columns: 50px 1fr 70px 70px 70px 50px;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .listproduct-product-icon {
+    height: 50px;
+    width: 50px;
+  }
+
+  .listproduct-format-main p {
+    font-size: 12px;
+  }
+
+  .list-product h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}

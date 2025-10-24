@@ -1,0 +1,86 @@
+.descriptionbox {
+  margin: 120px 170px;
+}
+
+.descriptionbox-navigator {
+  display: flex;
+}
+
+.descriptionbox-nav-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  width: 171px;
+  height: 70px;
+  border: 1px solid #d0d0d0;
+}
+
+.descriptionbox-nav-box.fade {
+  background: #FBFBFB;
+  color: #555;
+}
+
+.descriptionbox-description {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px solid #D0D0D0;
+  padding: 48px;
+  padding-bottom: 70px;
+  word-break: break-word; /* prevent overflow on narrow screens */
+}
+
+/* <= 1200px (large tablets / small desktops) */
+@media (max-width: 1200px) {
+  .descriptionbox { margin: 100px 100px; }
+}
+
+/* <= 992px (tablets) */
+@media (max-width: 992px) {
+  .descriptionbox { margin: 80px 48px; }
+  .descriptionbox-nav-box {
+    width: 150px;
+    height: 60px;
+    font-size: 15px;
+  }
+  .descriptionbox-description {
+    padding: 36px;
+    padding-bottom: 56px;
+  }
+}
+
+/* <= 768px (small tablets / large phones) */
+@media (max-width: 768px) {
+  .descriptionbox { margin: 60px 24px; }
+  .descriptionbox-navigator {
+    flex-wrap: wrap;                 /* allow wrapping into multiple rows */
+    gap: 12px;
+  }
+  .descriptionbox-nav-box {
+    width: auto;                     /* stretch to fit */
+    flex: 1 1 calc(50% - 12px);      /* two per row */
+    height: 56px;
+    font-size: 15px;
+  }
+  .descriptionbox-description {
+    padding: 28px;
+    padding-bottom: 44px;
+  }
+}
+
+/* <= 576px (phones) */
+@media (max-width: 576px) {
+  .descriptionbox { margin: 40px 16px; }
+  .descriptionbox-nav-box {
+    flex: 1 1 100%;                  /* one per row */
+    height: 52px;
+    font-size: 14px;
+  }
+  .descriptionbox-description {
+    padding: 20px 16px;
+    padding-bottom: 32px;
+    gap: 18px;
+  }
+}
