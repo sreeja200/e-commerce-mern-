@@ -2,10 +2,21 @@ const port = process.env.PORT || 4000;
 const express = require("express");
 const app  = express();
 const mongoose = require("mongoose");  
-const multer = require("multer");  
+const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 
 app.use(express.json());
 app.use(cors());
@@ -19,29 +30,29 @@ app.get("/", (req,res)=>{
     res.send("Express App is Running")
 })
 
-// Image Storage Engine
+// Configure Cloudinary Storage for Multer
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'ecommerce_products', // Folder name in your Cloudinary
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+  },
+});
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename:(req,file,cb )=>{
-       return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-
-})
-
-const upload = multer({storage : storage})
+const upload = multer({ storage });
 
 // Creating Upload Endpoint for images
 app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.single('product'), (req,res)=>{
     console.log(req.file);
-     if (!req.file) {
+     if (!req.file || !req.file.path) {
         return res.status(400).json({ message: 'No file uploaded' });
     }
+
     res.json({
-        success:1,
-        image_url:`https://e-commerce-mern-backend-5rue.onrender.com/images/${req.file.filename}`
-    })
+       success: 1,
+       image_url: req.file.path || req.file.url, // Cloudinary gives us the hosted URL here
+    });
 })
 
 // Schema for Creating Products
@@ -96,7 +107,7 @@ app.post('/addproduct', async(req,res)=>{
     const product = new Product({
         id: id,
         name: req.body.name,
-        image: req.body.image,
+        image: req.body.image_url || req.body.image, 
         category: req.body.category,
         new_price: req.body.new_price,
         old_price: req.body.old_price,
