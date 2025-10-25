@@ -58,7 +58,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) =>{
       setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
       if(localStorage.getItem('auth-token')) {
-       fetch('https://e-commerce-mern-backend-5rue.onrender.com', {
+       fetch('https://e-commerce-mern-backend-5rue.onrender.com/removefromcart', {
           method: 'POST',
           headers: {
              Accept: 'application/form-data',
