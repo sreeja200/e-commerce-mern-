@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react'
-import './Navbar.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
-import { Link } from 'react-router-dom'
-import { ShopContext } from '../../Context/ShopContext';
+import { useContext, useState } from "react"
+import "./Navbar.css"
+import logo from "../Assets/logo.png"
+import cart_icon from "../Assets/cart_icon.png"
+import { Link } from "react-router-dom"
+import { ShopContext } from "../../Context/ShopContext"
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const {getTotalCartItems} = useContext(ShopContext);
- 
+  const { getTotalCartItems } = useContext(ShopContext)
+
   const handleNavClick = (menuItem) => {
     setMenu(menuItem)
     setMobileMenuOpen(false)
@@ -17,67 +17,85 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='navbar'>
+      <div className="navbar">
         {/* Mobile Hamburger Menu Button */}
-        <button 
-          className='hamburger-menu'
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
+        <button className="hamburger-menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <div className='nav-logo'>
-          <img src={logo} alt="" />
+        <div className="nav-logo">
+          <img src={logo || "/placeholder.svg"} alt="" />
           <p>SHOPPER</p>
         </div>
 
-        <ul className='nav-menu'>
+        <ul className="nav-menu">
           <li onClick={() => setMenu("shop")}>
-            <Link style={{ textDecoration: 'none' }} to="/">Shop</Link>
+            <Link style={{ textDecoration: "none" }} to="/">
+              Shop
+            </Link>
             {menu === "shop" ? <hr /> : <></>}
           </li>
           <li onClick={() => setMenu("men")}>
-            <Link style={{ textDecoration: 'none' }} to="/men">Men</Link>
+            <Link style={{ textDecoration: "none" }} to="/men">
+              Men
+            </Link>
             {menu === "men" ? <hr /> : <></>}
           </li>
           <li onClick={() => setMenu("women")}>
-            <Link style={{ textDecoration: 'none' }} to="/women">Women</Link>
+            <Link style={{ textDecoration: "none" }} to="/women">
+              Women
+            </Link>
             {menu === "women" ? <hr /> : <></>}
           </li>
           <li onClick={() => setMenu("kids")}>
-            <Link style={{ textDecoration: 'none' }} to="/kids">Kids</Link>
+            <Link style={{ textDecoration: "none" }} to="/kids">
+              Kids
+            </Link>
             {menu === "kids" ? <hr /> : <></>}
           </li>
         </ul>
 
-        <div className='nav-login-cart'>
-          {localStorage.getItem('auth-token')
-           ? <button className="nav-login-btn" onClick={()=>{localStorage.removeItem('auth-token'); window.location.replace('/')}}>Logout</button>
-           : <Link to='/login'><button className="nav-login-btn">Login</button></Link>
-          }
-          <Link to="/cart"><img src={cart_icon} alt="" /></Link>
-          <div className='nav-cart-count'>{getTotalCartItems()}</div>
+        <div className="nav-login-cart">
+          {localStorage.getItem("auth-token") ? (
+            <button
+              className="nav-login-btn"
+              onClick={() => {
+                localStorage.removeItem("auth-token")
+                window.location.replace("/")
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="nav-login-btn">Login</button>
+            </Link>
+          )}
+          <Link to="/cart">
+            <img src={cart_icon || "/placeholder.svg"} alt="" />
+          </Link>
+          <div className="nav-cart-count">{getTotalCartItems()}</div>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className='mobile-menu-overlay' onClick={() => setMobileMenuOpen(false)} />
-      )}
+      {mobileMenuOpen && <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)} />}
 
       {/* Mobile Side Menu */}
-      <div className={`mobile-side-menu ${mobileMenuOpen ? 'open' : ''}`}>
-        <div className='mobile-menu-header'>
-          <div className='mobile-menu-logo'>
-            <img src={logo} alt="" />
+      <div className={`mobile-side-menu ${mobileMenuOpen ? "open" : ""}`}>
+        <div className="mobile-menu-header">
+          <div className="mobile-menu-logo">
+            <img src={logo || "/placeholder.svg"} alt="" />
             <p>SHOPPER</p>
           </div>
-          <button className='close-menu' onClick={() => setMobileMenuOpen(false)}>×</button>
+          <button className="close-menu" onClick={() => setMobileMenuOpen(false)}>
+            ×
+          </button>
         </div>
 
-        <ul className='mobile-menu-items'>
+        <ul className="mobile-menu-items">
           <li onClick={() => handleNavClick("shop")} className={menu === "shop" ? "active" : ""}>
             <Link to="/">Shop</Link>
           </li>
@@ -92,10 +110,24 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className='mobile-menu-footer'>
-          <Link to="/login">
-            <button className='mobile-login-btn' onClick={() => setMobileMenuOpen(false)}>Login</button>
-          </Link>
+        <div className="mobile-menu-footer">
+          {localStorage.getItem("auth-token") ? (
+            <button
+              className="mobile-login-btn"
+              onClick={() => {
+                localStorage.removeItem("auth-token")
+                window.location.replace("/")
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="mobile-login-btn" onClick={() => setMobileMenuOpen(false)}>
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </>
