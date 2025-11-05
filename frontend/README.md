@@ -20,4 +20,16 @@ It includes authentication, product management, cart, order handling, and admin 
 
 ---
 
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/sreeja200/e-commerce-mern-.git
+cd e-commerce-mern
+
+### 1️⃣ Install Dependencies
+🖥️ Backend
+```bash
+cd backend
+npm install
 
