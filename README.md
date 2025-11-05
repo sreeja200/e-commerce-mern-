@@ -1,6 +1,6 @@
 # 🛍️ E-Commerce MERN Stack Application
 
-![E-Commerce MERN](https://github.com/sreeja200/e-commerce-mern-/assets/your-image-id/sample-banner.png)
+![E-Commerce MERN](https://github.com/user-attachments/assets/70356d55-f447-4152-ba89-7107b9be122a)
 
 A full-stack **E-Commerce web app** built using the **MERN stack (MongoDB, Express, React, Node.js)**.  
 Includes authentication, cart, product management, and admin dashboard.
@@ -20,7 +20,7 @@ Includes authentication, cart, product management, and admin dashboard.
 
 ---
 
-## ⚙️ Installation & Setup (All in One)
+## ⚙️ Installation & Setup 
 
 ### 🪄 Clone & Run Entire Project
 
