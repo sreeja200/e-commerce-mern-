@@ -20,7 +20,7 @@ It includes authentication, product management, cart, order handling, and admin 
 
 ---
 
-## ⚙️ Installation & Setup (All in One)
+## ⚙️ Installation & Setup 
 
 ### 🪄 Clone & Run Entire Project
 
