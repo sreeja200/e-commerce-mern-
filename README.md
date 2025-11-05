@@ -1,0 +1,46 @@
+# 🛍️ E-Commerce MERN Stack Application
+
+![E-Commerce MERN](https://github.com/sreeja200/e-commerce-mern-/assets/your-image-id/sample-banner.png)
+
+A full-stack **E-Commerce web app** built using the **MERN stack (MongoDB, Express, React, Node.js)**.  
+Includes authentication, cart, product management, and admin dashboard.
+
+---
+
+## 🚀 Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| Frontend | React.js (JSX + CSS Modules) |
+| Backend | Node.js, Express.js |
+| Database | MongoDB |
+| Authentication | JWT (JSON Web Tokens) |
+| State Management | React Context / Redux |
+| Deployment | Render / Vercel / Netlify |
+
+---
+
+## ⚙️ Installation & Setup (All in One)
+
+### 🪄 Clone & Run Entire Project
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/sreeja200/e-commerce-mern-.git
+cd e-commerce-mern
+
+# 2️⃣ Setup backend
+cd backend
+npm install
+
+# 3️⃣ Setup frontend
+cd ../frontend
+npm install
+
+# 4️⃣ Start backend server (in one terminal)
+cd ../backend
+npm start
+
+# 5️⃣ Start frontend app (open new terminal)
+cd ../frontend
+npm start
