@@ -47,5 +47,4 @@ npm start
 
 ---
 
-## 🌐 Live Demo: 
-- https://e-commerce-mern-frontend-c6ge.onrender.com/
+
