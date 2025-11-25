@@ -16,7 +16,7 @@ Includes authentication, cart, product management, and admin dashboard.
 | Database | MongoDB |
 | Authentication | JWT (JSON Web Tokens) |
 | State Management | React Context / Redux |
-| Deployment | Render / Vercel / Netlify |
+| Deployment | Render |
 
 ---
 
@@ -44,11 +44,12 @@ npm start
 # 5️⃣ Start frontend app (open new terminal)
 cd ../frontend
 npm start
+```
 
 ---
 
 ## 🚀 Live Demo
 
-👉 **Live Site:** https://your-demo-link.com  
-👉 **Backend API:** https://your-backend-link.com
+👉 **Live Site:** https://e-commerce-mern-frontend-c6ge.onrender.com/
+
 
