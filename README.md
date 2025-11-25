@@ -44,3 +44,8 @@ npm start
 # 5️⃣ Start frontend app (open new terminal)
 cd ../frontend
 npm start
+
+---
+
+## 🌐 Live Demo: 
+- https://e-commerce-mern-frontend-c6ge.onrender.com/
